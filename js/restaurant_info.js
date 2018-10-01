@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {
    initMap();
+   sw();
 });
 
 /**
@@ -176,4 +177,18 @@ getParameterByName = (name, url) => {
    if (!results[2])
       return '';
    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+/**
+ * Setup Service Worker
+ */
+sw = () => {
+   if (!navigator.serviceWorker) return;
+
+   console.log('Service Worker: Supported');
+   navigator.serviceWorker.register('../sw.js').then(function(reg){
+      console.log('Service Worker: Registered')
+   }).catch(function(error) {
+      console.log(`Service Worker: Error ${error}`);
+   });
 }

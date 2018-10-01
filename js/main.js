@@ -9,12 +9,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
    initMap(); // added 
    fetchNeighborhoods();
    fetchCuisines();
-   // sw();
-});
-
-window.addEventListener('load', () => {
    sw();
-})
+});
 
 /**
  * Fetch all neighborhoods and set their HTML.

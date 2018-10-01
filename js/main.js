@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
    initMap(); // added 
    fetchNeighborhoods();
    fetchCuisines();
-   sw();
 });
 
 /**
@@ -191,19 +190,5 @@ addMarkersToMap = (restaurants = self.restaurants) => {
          window.location.href = marker.options.url;
       }
       self.markers.push(marker);
-   });
-
-}
-
-/**
- * Setup Service Worker
- */
-sw = () => {
-   if (!navigator.serviceWorker) return;
-   console.log('Service Worker: Supported');
-   navigator.serviceWorker.register('../sw.js').then(function(reg){
-      console.log('Service Worker: Registered')
-   }).catch(function(error) {
-      console.log(`Service Worker: Error ${error}`);
    });
 }

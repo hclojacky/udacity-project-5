@@ -1,6 +1,7 @@
 const cacheName = 'restaurant-v1';
 
 const cacheAssets = [
+   '/',
    'index.html',
    'restaurant.html',
    'css/styles.css',
@@ -21,7 +22,6 @@ const cacheAssets = [
 ]
 
 self.addEventListener('install', (e) => {
-   console.log('Service Worker: Installed');
    e.waitUntil(
       caches.open(cacheName).then(function (cache) {
          return cache.addAll(cacheAssets);
@@ -30,7 +30,6 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('activate', (e) => {
-   console.log('Service Worker: Activated');
    e.waitUntil(
       caches.keys().then(cacheNames => {
          return Promise.all(
@@ -46,7 +45,6 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', e => {
-   console.log('Service Worker: Fetching');
    e.respondWith(
       fetch(e.request).catch(() => caches.match(e.request))
    )

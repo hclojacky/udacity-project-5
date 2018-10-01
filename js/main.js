@@ -9,7 +9,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
    initMap(); // added 
    fetchNeighborhoods();
    fetchCuisines();
+   // sw();
 });
+
+window.addEventListener('load', () => {
+   sw();
+})
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -147,6 +152,7 @@ createRestaurantHTML = (restaurant) => {
    const image = document.createElement('img');
    image.className = 'restaurant-img';
    image.src = DBHelper.imageUrlForRestaurant(restaurant);
+   image.setAttribute('alt', restaurant.name);
    li.append(image);
 
    const content = document.createElement('div');
@@ -166,6 +172,7 @@ createRestaurantHTML = (restaurant) => {
    const more = document.createElement('a');
    more.innerHTML = 'View Details';
    more.href = DBHelper.urlForRestaurant(restaurant);
+   more.setAttribute('aria-label', 'View Details about ' + restaurant.name)
    content.append(more)
 
    li.append(content)
@@ -190,4 +197,18 @@ addMarkersToMap = (restaurants = self.restaurants) => {
       self.markers.push(marker);
    });
 
+}
+
+/**
+ * Setup Service Worker
+ */
+sw = () => {
+   if (!navigator.serviceWorker) return;
+
+   console.log('Service Worker: Supported');
+   navigator.serviceWorker.register('../sw.js').then(function(reg){
+      console.log('Service Worker: Registered')
+   }).catch(function(error) {
+      console.log(`Service Worker: Error ${error}`);
+   });
 }

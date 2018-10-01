@@ -92,6 +92,7 @@ nav {
    -webkit-box-align: center;
    align-items: center;
    align-content: flex-start;
+   -webkit-box-pack: center;
    justify-content: center;
 }
 
@@ -162,7 +163,7 @@ nav h1 a {
 
 .filter-options {
    width: 100%;
-   background-color: #3397db;
+   background-color: #1976D2;
    display: -webkit-box;
    display: flex;
    flex-wrap: wrap;
@@ -239,7 +240,7 @@ nav h1 a {
 }
 
 #restaurants-list li h1 {
-   color: #f18200;
+   color: #BF360C;
    font-family: Arial, sans-serif;
    font-weight: 200;
    letter-spacing: 0;
@@ -256,7 +257,7 @@ nav h1 a {
 }
 
 #restaurants-list li a {
-   background-color: orange;
+   background-color: #BF360C;
    border-bottom: 3px solid #eee;
    color: #fff;
    display: inline-block;
@@ -285,6 +286,7 @@ nav h1 a {
    right: 0;
    bottom: 50px;
    overflow-y: auto;
+   -webkit-overflow-scrolling: touch;
    min-height: 0;
 }
 
@@ -305,13 +307,16 @@ nav h1 a {
    width: 100%;
    height: 50px;
    padding: 10px;
+   display: -webkit-box;
    display: flex;
+   -webkit-box-align: center;
    align-items: center;
+   -webkit-box-pack: center;
    justify-content: center;
 }
 
 #restaurant-name {
-   color: #f18200;
+   color: #BF360C;
    font-weight: normal;
    text-align: center;
    font-size: 1.3rem;
@@ -356,7 +361,7 @@ nav h1 a {
 }
 
 #reviews-container h2 {
-   color: #f58500;
+   color: #BF360C;
    font-weight: 300;
    margin-bottom: 13px;
    font-size: 1.3rem;
@@ -403,6 +408,7 @@ nav h1 a {
    .filter-options {
       height: auto;
       flex-wrap: nowrap;
+      -webkit-box-align: center;
       align-items: center;
    }
 
@@ -422,6 +428,10 @@ nav h1 a {
       margin-right: 0;
    }
 
+   #restaurants-list {
+      padding: 24px;
+   }
+
    #restaurants-list li {
       width: calc((100% / 3) - 18px);
       margin-right: 24px;
@@ -432,6 +442,7 @@ nav h1 a {
    }
 
    .inside #maincontent {
+      display: -webkit-box;
       display: flex;
       flex-wrap: wrap;
    }
@@ -479,9 +490,19 @@ nav h1 a {
    #map-container {
       min-height: 400px;
    }
-   
+
    .inside #map-container {
       min-height: 0;
+   }
+
+   .inside #maincontent {
+      -webkit-box-pack: center;
+      justify-content: center;
+   }
+
+   #restaurant-container,
+   #reviews-container {
+      max-width: 600px;
    }
 }
 

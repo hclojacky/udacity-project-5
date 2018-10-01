@@ -9,16 +9,16 @@ To start the development, you should download the project and open the **index.h
 ## Development
 Here is the file structures
 + css
- + styles.css
+  + styles.css
 + data
- + restaurants.json
+  + restaurants.json
 + img
- + (serveral image files)
+  + (serveral image files)
 + js
- + dbhelper.js
- + main.js
- + restaurant_info.js
- + sw_register.js
+  + dbhelper.js
+  + main.js
+  + restaurant_info.js
+  + sw_register.js
 + index.html
 + restaurant.html
 + sw.js
